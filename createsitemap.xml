@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+	<name>PLG_SYSTEM_CREATESITEMAP</name>
+	<author>Otterly Useless</author>
+	<creationDate></creationDate>
+	<copyright>Copyright (c) 2022 Otterly Useless</copyright>
+	<license>MIT License</license>
+	<version>1.0.0</version>
+	<description>PLG_SYSTEM_CREATESITEMAP_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\System\Createsitemap</namespace>
+
+	<files>
+		<filename plugin="createsitemap">createsitemap.php</filename>
+		<folder>language</folder>
+		<folder>services</folder>
+		<folder>src</folder>
+	</files>
+
+	<language folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_createsitemap.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_createsitemap.sys.ini</language>
+	</language>
+
+	<config></config>
+</extension>

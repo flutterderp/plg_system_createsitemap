@@ -1,0 +1,7 @@
+create-package.sh
+exclude.lst
+*._*
+*.git*
+*.svn*
+*.DS_Store
+*.zip
