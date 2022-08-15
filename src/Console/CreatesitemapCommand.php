@@ -13,6 +13,7 @@ namespace Joomla\Plugin\System\Createsitemap\Console;
 
 use Joomla\CMS\Categories\Categories;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Filesystem\File;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Version;
@@ -275,9 +276,14 @@ class CreatesitemapCommand extends AbstractCommand
 		{
 			// Parse menu link for component name
 			$link = parse_url($categoryLink);
-			parse_str($link['query'], $q);
 
-			include_once(JPATH_BASE . '/components/' . $q['option'] . '/helpers/route.php');
+			parse_str($link['query'], $q);
+			$router = JPATH_BASE . '/components/' . $q['option'] . '/helpers/route.php';
+
+			if(File::exists($router))
+			{
+				include_once($router);
+			}
 
 			$componentName    = substr($q['option'], 4);
 			$uc_componentName = ucwords($componentName);

@@ -5,7 +5,7 @@
 	<creationDate></creationDate>
 	<copyright>Copyright (c) 2022 Otterly Useless</copyright>
 	<license>MIT License</license>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<description>PLG_SYSTEM_CREATESITEMAP_DESCRIPTION</description>
 	<namespace path="src">Joomla\Plugin\System\Createsitemap</namespace>
 
