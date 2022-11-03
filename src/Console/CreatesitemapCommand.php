@@ -316,9 +316,19 @@ class CreatesitemapCommand extends AbstractCommand
 					break;
 			}
 
+			switch($componentName)
+			{
+				case 'contact' :
+					$tableName = 'contact_details';
+					break;
+				default :
+					$tableName = $componentName;
+					break;
+			}
+
 			$query->clear();
 			$query->select('a.id,a.alias,concat(a.id,\':\',a.alias) as slug,a.catid,DATE(a.modified) as modified')
-				->from($db->qn('#__'.$componentName, 'a'))
+				->from($db->qn('#__'.$tableName, 'a'))
 				->where('a.catid IN('.implode(',', $catids).')')
 				->where('a.state = 1')->where('a.access IN(1,5)');
 			$db->setQuery($query);
