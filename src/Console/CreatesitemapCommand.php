@@ -220,8 +220,9 @@ class CreatesitemapCommand extends AbstractCommand
 	 */
 	protected function getMenu()
 	{
-		$db    = Factory::getDbo();
-		$query = $db->getQuery(true);
+		$jfours = array(4,5);
+		$db     = Factory::getDbo();
+		$query  = $db->getQuery(true);
 		$query
 			->select('`m`.`id`,`m`.`menutype`,`m`.`title`,`m`.`alias`')
 			->select('`m`.`path` AS route, `m`.`link`, `m`.`type`, `m`.`published`')
@@ -239,7 +240,7 @@ class CreatesitemapCommand extends AbstractCommand
 
 		try
 		{
-			if(Version::MAJOR_VERSION === 4)
+			if(in_array(Version::MAJOR_VERSION, $jfours))
 			{
 				// Joomla.CMS.Menu.SiteMenu
 				$rows = $db->loadObjectList('id');
