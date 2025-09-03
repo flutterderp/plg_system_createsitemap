@@ -127,7 +127,7 @@ class CreatesitemapCommand extends AbstractCommand
 
 		try
 		{
-			$today     = new \DateTime(null, new \DateTimeZone('UTC'));
+			$today     = new \DateTime('', new \DateTimeZone('UTC'));
 
 			$textFile  = fopen(JPATH_BASE . '/sitemap.txt', 'w+');
 			$menuitems = $this->getMenu();
