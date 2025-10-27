@@ -9,11 +9,12 @@
 
 namespace Joomla\Plugin\System\Createsitemap\Console;
 
-\defined('JPATH_PLATFORM') or die;
+\defined('_JEXEC') or die;
 
+use Doctrine\Inflector\InflectorFactory;
 use Joomla\CMS\Categories\Categories;
 use Joomla\CMS\Factory;
-use Joomla\CMS\Filesystem\File;
+use Joomla\Filesystem\File;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Version;
@@ -269,7 +270,7 @@ class CreatesitemapCommand extends AbstractCommand
 	protected function getChildItems($categoryLink = '', $itemId = 0)
 	{
 		$db        = Factory::getDbo();
-		$inflector = \Joomla\String\Inflector::getInstance();
+		$inflector = InflectorFactory::create()->build();
 		$query     = $db->getQuery(true);
 		$return    = array();
 
@@ -313,7 +314,7 @@ class CreatesitemapCommand extends AbstractCommand
 					$view = 'article';
 					break;
 				default :
-					$view = $inflector->toSingular($componentName);
+					$view = $inflector->singularize($componentName);
 					break;
 			}
 
